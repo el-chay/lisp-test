@@ -1,7 +1,7 @@
 #!/usr/bin/clisp
 ; Command line parameters test
 ; args is a list containing the command line parameters.
-; This is a GNU Common Lisp Extension
+; This is a Common Lisp Extension
 
 (fresh-line)
 ; princ will print "human friendly" and a LF.

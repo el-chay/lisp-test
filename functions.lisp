@@ -39,9 +39,18 @@
 ;; Do not use setf for variable definitions! (wrong usage).
 ;; In this context is a global variable.
 (setf a "hola")
+
 ;; Right way to define a global variable.
 (defparameter b "mundo"
 "This is a global variable")
+
 ;; Constant
 (defconstant *pi-phi-1* (1+ (* (/ (1+ (sqrt 5)) 2) pi))
 "Guido's constant")
+
+;; Sequence functions can be "destructive":
+(let ((l '(a b c d)))
+  (princ (remove-if #'symbolp l)) ;; should print NIL
+  (princ l) ;; should print l
+  (princ (delete-if #'symbolp l)) ;; Destructive form
+  (princ l)) ;; should print NIL
