@@ -59,7 +59,6 @@
   (with-output-to-string (morse)
     (write-string (character-to-morse (aref string 0)) morse)
     (loop
-      do
       for char across (subseq string 1)
       do (write-char #\Space morse)
       do (write-string (character-to-morse char) morse))))

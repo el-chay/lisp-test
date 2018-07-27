@@ -1,5 +1,3 @@
-#!/usr/bin/clisp
-
 ;; Format test: value can be true or false, print accordingly.
 (defun fail-ok (value)
   (format nil "~:[FAIL~;pass~]" value))
