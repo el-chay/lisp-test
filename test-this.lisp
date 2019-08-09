@@ -4,17 +4,9 @@
 (with-open-file (my-stream "data.txt" :direction :input)
   (read my-stream))
 
-
-;;; Socket (server)
-(defparameter my-socket (sb-bsd-sockets:socket-listen 9876 2))
-
-
-(coerce 'list "hola mundo")
-
+(coerce "hola mundo" 'list)
 
 (input-stream-p *standard-input*)
-
-(resolve-host-ipaddr "www.lisp.org")
 
 (defun replace-first (&optional (a 'rose) (l '(tulip daisy iris)))
   (cons a (cdr l)))
@@ -61,3 +53,28 @@
         (car (cdr l)) 
         (car (cdr (cdr l))))
      3))
+
+;;;; let
+
+(defun powers (a b)
+  "(powers 3 6) returns (81 3)"
+  (let ((s (+ a b)))
+    (list (* s s)
+          (sqrt s))))
+
+(defun right-triangle (h s)
+  "(right-triangle 17 8) returns (40 60)"
+  (let ((os (sqrt (- (* h h)
+                     (* s s)))))
+    (list (+ h s os)
+          (/ (* s os) 2))))
+
+(defun compare (x y)
+  "(compare 5 5) returns t"
+  (> (+ 10 x)
+     (* 2 y)))
+
+(defun palp (l)
+  "(palp '(a b c c b a)) returns T
+   (palp '(dog cat))     returns nil"
+  (equal l (reverse l)))
